@@ -1,4 +1,4 @@
-rg 0x7C00
+org 0x7C00
 bits 16
 
 %define ENDL,0X0a
@@ -9,7 +9,6 @@ start:
 ;print a string on screen
 ;params:
 	;ds:si points to string
-
 
 puts:
 	push si
@@ -29,8 +28,6 @@ puts:
 	pop ax
 	pop si
 	ret
-
-
 
 main:
 	; setup data segment
@@ -54,5 +51,4 @@ main:
 msg: db 'Hello world...'ENDL,0
 
 times 510-($-$$) db 0
-
 dw 0AA55h
